@@ -9,8 +9,8 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    background-color: #cdf100;
+    /*overflow: hidden;*/
+    background-color: yellow;
     font-size: 18px;
 }
 
@@ -40,8 +40,8 @@ header a {
 }
 
 .container {
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     margin-top: -50px;
     overflow: hidden;
     position: relative;
@@ -96,20 +96,22 @@ header a {
     border-radius: 10px;
     background-color: #fff;
     letter-spacing: 2px; /* para dar um espaçamento entre as letras */
+    font-size: 12px;
     font-weight: 700; /* para deixar a fonte no mesmo tamanho das fontes que foram importadas do Google fonts */
     cursor: pointer; /* para informar ao usuário que os botões são clicáveis */
     text-transform: uppercase; /* para deixar toda a fonte dentro dos botões maiúscula */
+    text-decoration: none;
 }
 
 .container .list .list-item .buttons a:nth-child(1):hover button { /* para escolher o botão em específico juntamente com o "<a>" e aplicar o efeito de passar o mouse emcima do botão */
     background-color: green;
-    border: 1px solid #cdf100;
-    color: #cdf100;
+    border: 1px solid yellow;
+    color: yellow;
     transition: 0.7s;
 }
 
 .container .list .list-item .buttons a:nth-child(2):hover button {
-    background-color: #cdf100;
+    background-color: yellow;
     border: 1px solid green;
     color: green;
     transition: 0.7s;
@@ -184,12 +186,12 @@ header a {
 
 .container .arrows button.back:hover {
     background-color: green;
-    color: #cdf100;
+    color: yellow;
     transition: 0.3s;
 }
 
 .container .arrows button.next:hover {
-    background-color: #cdf100;
+    background-color: yellow;
     color: green;
     transition: 0.3s;
 }
@@ -241,17 +243,16 @@ header a {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    bottom: 60px;
     padding: 15px 0;
-    display: grid;
     text-align: center;
     font-size: 0.6rem;
     color: #fff;
-    background-color: #000;
-    opacity: 70%;
-    position: relative;
-    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7); /* visível sobre a imagem */
+    z-index: 5;
 }
 
 
@@ -331,27 +332,26 @@ footer {
     }
 
     .container .list .list-item .content {
-        top: 56%;
-        left: 15.5%;
-        width: 100%;
-        transform: translateY(-50%);
-        text-align: center;
+        top: 40%;
+        left: 10%;
     }
 
     .container .list .list-item .title {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
 
     .container .list .list-item .description {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .container .list .list-item .buttons {
-        justify-content: center;
+        grid-template-columns: repeat(2, 100px); /* largura fixa dos botões */
+        grid-template-rows: 30px; /* altura dos botões */
+        justify-content: start;
     }
 
     .container .thumb-wrapper {
-        max-width: calc((320px * 1) + (20px * 1) + 20px); /* 2 imagens + 1 gap + padding */
+        max-width: calc((340px * 1) + (20px * 0) + 20px); /* 1 imagem + 1 gap + padding */
         left: 3px;
         bottom: 90px;
         opacity: 80%;
