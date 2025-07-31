@@ -340,8 +340,10 @@ footer {
     }
 
     .container .list .list-item .content {
-        top: 40%;
-        left: 10%;
+        width: 100%;
+        top: 44%;
+        left: 15%;
+        text-align: center;
     }
 
     .container .list .list-item .title {
@@ -355,19 +357,19 @@ footer {
     .container .list .list-item .buttons {
         grid-template-columns: repeat(2, 100px); /* largura fixa dos botões */
         grid-template-rows: 30px; /* altura dos botões */
-        justify-content: start;
+        justify-content: center;
     }
 
     .container .thumb-wrapper {
         max-width: calc((340px * 1) + (20px * 0) + 20px); /* 1 imagem + 1 gap + padding */
         left: 3px;
-        bottom: 190px;
+        bottom: 120px;
         opacity: 80%;
     }
 
     .container .thumb-wrapper .thumb .thumb-item {
         width: 300px; /* largura máxima que a div vai ter */
-        height: 150px; /* altura máxima que a div vai ter */
+        height: 200px; /* altura máxima que a div vai ter */
         flex-shrink: 0; /* impede que o item encolha */
         position: relative;
     }
@@ -382,7 +384,7 @@ footer {
     }
 
     .container .arrows {
-        bottom: 245px;
+        bottom: 200px;
         padding: 0 15px;
     }
 
