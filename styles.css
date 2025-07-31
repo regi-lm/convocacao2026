@@ -95,6 +95,7 @@ header a {
     border: none;
     border-radius: 10px;
     background-color: #fff;
+    color: #000;
     letter-spacing: 2px; /* para dar um espaçamento entre as letras */
     font-size: 12px;
     font-weight: 700; /* para deixar a fonte no mesmo tamanho das fontes que foram importadas do Google fonts */
@@ -353,13 +354,13 @@ footer {
     .container .thumb-wrapper {
         max-width: calc((340px * 1) + (20px * 0) + 20px); /* 1 imagem + 1 gap + padding */
         left: 3px;
-        bottom: 90px;
+        bottom: 220px;
         opacity: 80%;
     }
 
     .container .thumb-wrapper .thumb .thumb-item {
         width: 300px; /* largura máxima que a div vai ter */
-        height: 200px; /* altura máxima que a div vai ter */
+        height: 150px; /* altura máxima que a div vai ter */
         flex-shrink: 0; /* impede que o item encolha */
         position: relative;
     }
@@ -374,12 +375,17 @@ footer {
     }
 
     .container .arrows {
-        bottom: 170px;
+        bottom: 275px;
         padding: 0 15px;
     }
 
     .container .arrows button {
         padding: 5px 12px;
         font-size: 1.1rem;
+    }
+
+    footer {
+        padding-bottom: 140px;
+        overflow: hidden;
     }
 }
