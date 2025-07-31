@@ -332,6 +332,13 @@ footer {
         width: 65px;
     }
 
+    .container {
+        width: 100vw;
+        height: 100vh;
+        padding-bottom: 50px;
+        overflow: hidden;
+    }
+
     .container .list .list-item .content {
         top: 40%;
         left: 10%;
@@ -354,7 +361,7 @@ footer {
     .container .thumb-wrapper {
         max-width: calc((340px * 1) + (20px * 0) + 20px); /* 1 imagem + 1 gap + padding */
         left: 3px;
-        bottom: 220px;
+        bottom: 190px;
         opacity: 80%;
     }
 
@@ -375,7 +382,7 @@ footer {
     }
 
     .container .arrows {
-        bottom: 275px;
+        bottom: 245px;
         padding: 0 15px;
     }
 
@@ -385,7 +392,7 @@ footer {
     }
 
     footer {
-        padding-bottom: 140px;
+        padding-bottom: 80px;
         overflow: hidden;
     }
 }
