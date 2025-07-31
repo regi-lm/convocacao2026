@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #cdf100;
+    font-size: 18px;
+}
+
+header {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+}
+
+header a {
+    color: #fff;
+    margin-right: 40px;
+    font-weight: 500;
+}
+
+.logo {
+    margin-top: 100px;
+}
+
+.logo img {
+    width: 80px;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.container .list .list-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.container .list .list-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+.container .list .list-item .content {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    padding-right: 30%;
+    width: 80%;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.container .list .list-item .title {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.3em;
+}
+
+.container .list .list-item .description {
+    font-size: 1.2em;
+}
+
+.container .list .list-item .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 130px); /* largura fixa dos botões */
+    grid-template-rows: 40px; /* altura dos botões */
+    margin-top: 20px;
+    gap: 20px; /* espaçamento entre os botões */
+}
+
+.container .list .list-item .buttons a button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    letter-spacing: 2px; /* para dar um espaçamento entre as letras */
+    font-weight: 700; /* para deixar a fonte no mesmo tamanho das fontes que foram importadas do Google fonts */
+    cursor: pointer; /* para informar ao usuário que os botões são clicáveis */
+    text-transform: uppercase; /* para deixar toda a fonte dentro dos botões maiúscula */
+}
+
+.container .list .list-item .buttons a:nth-child(1):hover button { /* para escolher o botão em específico juntamente com o "<a>" e aplicar o efeito de passar o mouse emcima do botão */
+    background-color: green;
+    border: 1px solid #cdf100;
+    color: #cdf100;
+    transition: 0.7s;
+}
+
+.container .list .list-item .buttons a:nth-child(2):hover button {
+    background-color: #cdf100;
+    border: 1px solid green;
+    color: green;
+    transition: 0.7s;
+}
+
+.container .thumb-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 55px; /* espaço lateral para afastar da borda */
+    position: absolute;
+    bottom: 120px;
+    left: -20px;
+    cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.container .thumb-wrapper .thumb {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease-in-out;
+    width: max-content;
+}
+
+.container .thumb-wrapper .thumb .thumb-item {
+    width: 135px; /* largura máxima que a div vai ter */
+    height: 200px; /* altura máxima que a div vai ter */
+    flex-shrink: 0; /* impede que o item encolha */
+    position: relative;
+}
+
+.container .thumb-wrapper .thumb .thumb-item img {
+    width: 100%; /* largura máxima para a imagem ocupar dentro da div */
+    height: 100%; /* altura máxima para a imagem ocupar dentro da div */
+    object-fit: cover; /* para a imagem não se estender e nem sobressair as proporções  */
+    border-radius: 10px;
+    filter: brightness(80%);
+}
+
+.container .thumb .content {
+    position: absolute;
+    font-size: 15px;
+    color: #fff;
+    bottom: 10px;
+    left: 10px;
+}
+
+.container .arrows {
+    position: absolute;
+    bottom: 350px; /* fica acima da thumb */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 60px; /* alinhado com a borda interna da thumb-wrapper */
+    box-sizing: border-box;
+    z-index: 3;
+    pointer-events: none; /* importante para manter os cliques só nos botões */
+}
+
+.container .arrows button {
+    border-radius: 10px;
+    border: none;
+    padding: 2px 10px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    pointer-events: all; /* garante que os botões continuem clicáveis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .arrows button.back:hover {
+    background-color: green;
+    color: #cdf100;
+    transition: 0.3s;
+}
+
+.container .arrows button.next:hover {
+    background-color: #cdf100;
+    color: green;
+    transition: 0.3s;
+}
+
+/***** MOVIMENTO DA THUMB *****/
+
+.container.next .thumb {
+    animation: effectNextThumb 0.5s linear 1 forwards;
+}
+
+@keyframes effectNextThumb {
+    from {
+        transform: translateX(150px);
+    }
+}
+
+/***** MOVIMENTO ÚLTIMA THUMB *****/
+.container.next .thumb .thumb-item:nth-last-child(1) {
+    animation: effectLastThumb 0.5s linear 1 forwards;
+}
+
+@keyframes effectLastThumb {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.container.back .thumb {
+    animation: effectBackThumb 0.5s linear 1 forwards;
+}
+
+@keyframes effectBackThumb {
+    from {
+        transform: translateX(-150px);
+    }
+}
+
+/***** MOVIMENTO ÚLTIMA THUMB *****/
+.container.back .thumb .thumb-item:nth-last-child(10) {
+    animation: effectLastThumb 0.5s linear 1 forwards;
+}
+
+@keyframes effectLastThumb {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+footer {
+    width: 100%;
+    bottom: 60px;
+    padding: 15px 0;
+    display: grid;
+    text-align: center;
+    font-size: 0.6rem;
+    color: #fff;
+    background-color: #000;
+    opacity: 70%;
+    position: relative;
+    z-index: 2;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    header a {
+        display: none;
+    }
+
+    .logo img {
+        width: 65px;
+    }
+
+    .container .list .list-item .content {
+        top: 25%;
+    }
+
+    .container .list .list-item .title {
+        font-size: 50px;
+    }
+
+    .container .list .list-item .description {
+        font-size: 18px;
+    }
+
+    .container .thumb-wrapper {
+        max-width: calc((160px * 2) + (20px * 1) + 20px); /* 2 imagens + 1 gap + padding */
+        left: 5px;
+        bottom: 90px;
+    }
+
+    .container .thumb-wrapper .thumb .thumb-item {
+        width: 135px; /* largura máxima que a div vai ter */
+        height: 200px; /* altura máxima que a div vai ter */
+        flex-shrink: 0; /* impede que o item encolha */
+        position: relative;
+    }
+
+    .container .thumb .thumb-item {
+        width: 110px;
+        height: 170px;
+    }
+
+    .container .thumb .content {
+        font-size: 12px;
+    }
+
+    .container .arrows {
+        bottom: 240px;
+        padding: 0 30px;
+    }
+
+    .container .arrows button {
+        padding: 5px 12px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    header a {
+        display: none;
+    }
+
+    .logo img {
+        width: 65px;
+    }
+
+    .container .list .list-item .content {
+        top: 56%;
+        left: 15.5%;
+        width: 100%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .container .list .list-item .title {
+        font-size: 1.8em;
+    }
+
+    .container .list .list-item .description {
+        font-size: 1em;
+    }
+
+    .container .list .list-item .buttons {
+        justify-content: center;
+    }
+
+    .container .thumb-wrapper {
+        max-width: calc((320px * 1) + (20px * 1) + 20px); /* 2 imagens + 1 gap + padding */
+        left: 3px;
+        bottom: 90px;
+        opacity: 80%;
+    }
+
+    .container .thumb-wrapper .thumb .thumb-item {
+        width: 300px; /* largura máxima que a div vai ter */
+        height: 200px; /* altura máxima que a div vai ter */
+        flex-shrink: 0; /* impede que o item encolha */
+        position: relative;
+    }
+
+    .container .thumb .thumb-item {
+        width: 90px;
+        height: 140px;
+    }
+
+    .container .thumb .content {
+        font-size: 16px;
+    }
+
+    .container .arrows {
+        bottom: 170px;
+        padding: 0 15px;
+    }
+
+    .container .arrows button {
+        padding: 5px 12px;
+        font-size: 1.1rem;
+    }
+}
