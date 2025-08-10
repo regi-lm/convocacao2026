@@ -402,6 +402,14 @@ footer {
         font-size: 1.1rem;
     }
 
+    .container.next .list .list-item:nth-last-child(1) img {
+        display: none;
+    }
+
+    .container.back .list .list-item:nth-child(1) img {
+        display: none;
+    }
+
     footer {
         padding-bottom: 20px;
         overflow: hidden;
@@ -480,6 +488,14 @@ footer {
     .container .arrows button {
         padding: 5px 12px;
         font-size: 1.1rem;
+    }
+
+    .container.next .list .list-item:nth-last-child(1) img {
+        display: none;
+    }
+
+    .container.back .list .list-item:nth-child(1) img {
+        display: none;
     }
 
     footer {
