@@ -281,7 +281,7 @@ header a {
     height: 220px;
     position: absolute;
     bottom: 50px;
-    left: 50%;
+    left: 20%;
     border-radius: 30px;
     animation: showMainImage 0.5s linear 1 forwards;
 }
@@ -301,8 +301,8 @@ header a {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 2;
     animation: hideMainImage 0.5s linear 1 forwards;
+    z-index: 2;
 }
 
 @keyframes hideMainImage {
@@ -403,11 +403,12 @@ footer {
     }
 
     .container.next .list .list-item:nth-last-child(1) img {
-        display: none;
+        animation-duration: 0.1s;
     }
 
     .container.back .list .list-item:nth-child(1) img {
         display: none;
+        animation: none;
     }
 
     footer {
@@ -491,11 +492,12 @@ footer {
     }
 
     .container.next .list .list-item:nth-last-child(1) img {
-        display: none;
+        animation-duration: 0.1s;
     }
 
     .container.back .list .list-item:nth-child(1) img {
         display: none;
+        animation: none;
     }
 
     footer {
