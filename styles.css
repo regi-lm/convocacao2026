@@ -142,6 +142,7 @@ header a {
     height: 200px; /* altura máxima que a div vai ter */
     flex-shrink: 0; /* impede que o item encolha */
     position: relative;
+    z-index: 3;
 }
 
 .container .thumb-wrapper .thumb .thumb-item img {
@@ -209,7 +210,7 @@ header a {
     }
 }
 
-/***** MOVIMENTO ÚLTIMA THUMB *****/
+/***** MOVIMENTO PRÓXIMA THUMB *****/
 .container.next .thumb .thumb-item:nth-last-child(1) {
     animation: effectLastThumb 0.5s linear 1 forwards;
 }
@@ -241,6 +242,77 @@ header a {
         width: 0;
         opacity: 0;
     }
+} /***** FIM *****/
+
+/***** TEXTOS PRINCIPAIS *****/
+
+.container .list .list-item:nth-last-child(1) .content .title,
+.container .list .list-item:nth-last-child(1) .content .description,
+.container .list .list-item:nth-last-child(1) .content .buttons {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 0.5s linear 1 forwards;
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.container .list .list-item:nth-last-child(1) .content .title {
+    animation-delay: 0.5s;
+}
+
+.container .list .list-item:nth-last-child(1) .content .description {
+    animation-delay: 0.9s;
+}
+
+.container .list .list-item:nth-last-child(1) .content .buttons {
+    animation-delay: 1.4s;
+} /***** FIM *****/
+
+/***** IMAGEM PRINCIPAL NEXT *****/
+.container.next .list .list-item:nth-last-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showMainImage 0.5s linear 1 forwards;
+}
+
+@keyframes showMainImage {
+    to {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+/***** IMAGEM PRINCIPAL BACK *****/
+.container.back .list .list-item:nth-child(1) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    animation: hideMainImage 0.5s linear 1 forwards;
+}
+
+@keyframes hideMainImage {
+    to {
+        width: 135px;
+        height: 200px;
+        border-radius: 10px;
+        left: 13.2%;
+        bottom: 120px;
+    }
 }
 
 footer {
@@ -256,68 +328,7 @@ footer {
     z-index: 5;
 }
 
-
 @media (max-width: 768px) {
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    header a {
-        display: none;
-    }
-
-    .logo img {
-        width: 65px;
-    }
-
-    .container .list .list-item .content {
-        top: 25%;
-    }
-
-    .container .list .list-item .title {
-        font-size: 50px;
-    }
-
-    .container .list .list-item .description {
-        font-size: 18px;
-    }
-
-    .container .thumb-wrapper {
-        max-width: calc((160px * 2) + (20px * 1) + 20px); /* 2 imagens + 1 gap + padding */
-        left: 5px;
-        bottom: 90px;
-    }
-
-    .container .thumb-wrapper .thumb .thumb-item {
-        width: 135px; /* largura máxima que a div vai ter */
-        height: 200px; /* altura máxima que a div vai ter */
-        flex-shrink: 0; /* impede que o item encolha */
-        position: relative;
-    }
-
-    .container .thumb .thumb-item {
-        width: 110px;
-        height: 170px;
-    }
-
-    .container .thumb .content {
-        font-size: 12px;
-    }
-
-    .container .arrows {
-        bottom: 240px;
-        padding: 0 30px;
-    }
-
-    .container .arrows button {
-        padding: 5px 12px;
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
     header {
         display: flex;
         align-items: center;
@@ -367,6 +378,86 @@ footer {
 
     .container .thumb-wrapper .thumb .thumb-item {
         width: 300px; /* largura máxima que a div vai ter */
+        height: 150px; /* altura máxima que a div vai ter */
+        flex-shrink: 0; /* impede que o item encolha */
+        position: relative;
+    }
+
+    .container .thumb .thumb-item {
+        width: 90px;
+        height: 140px;
+    }
+
+    .container .thumb .content {
+        font-size: 16px;
+    }
+
+    .container .arrows {
+        bottom: 150px;
+        padding: 0 15px;
+    }
+
+    .container .arrows button {
+        padding: 5px 12px;
+        font-size: 1.1rem;
+    }
+
+    footer {
+        padding-bottom: 20px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 375px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    header a {
+        display: none;
+    }
+
+    .logo img {
+        width: 65px;
+    }
+
+    .container {
+        width: 100vw;
+        height: 100dvh;
+        padding-bottom: 50px;
+        overflow: hidden;
+    }
+
+    .container .list .list-item .content {
+        top: 45%;
+        left: 10%;
+    }
+
+    .container .list .list-item .title {
+        font-size: 1.5em;
+    }
+
+    .container .list .list-item .description {
+        font-size: 0.9em;
+    }
+
+    .container .list .list-item .buttons {
+        grid-template-columns: repeat(2, 100px); /* largura fixa dos botões */
+        grid-template-rows: 30px; /* altura dos botões */
+        justify-content: start;
+    }
+
+    .container .thumb-wrapper {
+        max-width: calc((340px * 1) + (20px * 0) - 20px); /* 1 imagem + 1 gap + padding */
+        left: 3px;
+        bottom: 90px;
+        opacity: 80%;
+    }
+
+    .container .thumb-wrapper .thumb .thumb-item {
+        width: 260px; /* largura máxima que a div vai ter */
         height: 150px; /* altura máxima que a div vai ter */
         flex-shrink: 0; /* impede que o item encolha */
         position: relative;
