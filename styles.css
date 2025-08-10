@@ -335,8 +335,12 @@ footer {
         justify-content: center;
     }
     
-    header a {
+    header nav a {
         display: none;
+    }
+    
+    header > a {
+        width: 10%;
     }
 
     .logo img {
@@ -424,8 +428,12 @@ footer {
         justify-content: center;
     }
     
-    header a {
+    header nav a {
         display: none;
+    }
+    
+    header > a {
+        width: 10%;
     }
 
     .logo img {
